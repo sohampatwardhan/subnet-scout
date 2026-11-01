@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "spec-context-on-prompt",
+      "description": "Point the agent at the Kiro spec and the clean-room rule before it edits.",
+      "enabled": true,
+      "trigger": "UserPromptSubmit",
+      "action": {
+        "type": "agent",
+        "prompt": "If this request changes Subnet Scout, read .kiro/steering/product.md, tech.md, and structure.md, plus .kiro/specs/local-network-scan/requirements.md, design.md, and tasks.md before editing. Implement only the task the user named. This is a clean-room project: do not copy source, strings, icons, or branding from another IP scanner, and do not use the word Angry in the product. Do not rename the repository. Do not write MCP client config into the repo."
+      }
+    }
+  ]
+}

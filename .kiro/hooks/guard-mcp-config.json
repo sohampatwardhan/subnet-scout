@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "guard-mcp-config",
+      "description": "Block writes of MCP client config, including an Iconify server entry.",
+      "enabled": true,
+      "trigger": "PreToolUse",
+      "matcher": "write",
+      "timeout": 10,
+      "action": {
+        "type": "command",
+        "command": "node scripts/hooks/guard-mcp-config.mjs"
+      }
+    }
+  ]
+}
