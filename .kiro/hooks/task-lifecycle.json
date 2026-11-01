@@ -1,0 +1,25 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "before-spec-task",
+      "description": "Re-read the cited acceptance criteria before a spec task runs.",
+      "enabled": true,
+      "trigger": "PreTaskExec",
+      "action": {
+        "type": "agent",
+        "prompt": "Before this spec task, re-read .kiro/specs/local-network-scan/requirements.md, design.md, and the task's _Requirements_ ids. Implement only that task. Leave optional tasks 8, 9, and 10 undone unless the user asked for them."
+      }
+    },
+    {
+      "name": "after-spec-task",
+      "description": "Compare the change with the task's acceptance criteria.",
+      "enabled": true,
+      "trigger": "PostTaskExec",
+      "action": {
+        "type": "agent",
+        "prompt": "Compare the change you just made with the acceptance criteria cited by the task. Report any criterion that is still unmet. Do not mark the checkbox done unless the work is in the tree. Do not start the next task."
+      }
+    }
+  ]
+}
